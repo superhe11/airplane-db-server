@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билеты</title>
+    <link rel="stylesheet" href="styleticket.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header">
+            <button id="cartBtn">
+                <i class="fas fa-shopping-cart"></i> 
+            </button>
+            <button id="ticketsBtn">
+                <i class="fas fa-envelope"></i>
+            </button> </div>
+    </div>
+    <h1>Добро пожаловать!</h1>
+    <p>Здесь вы можете просмотреть и приобрести билеты.</p>
+    <p>Добро пожаловать, <span id="username"></span>!</p>
+    <p><span id="userID"></span></p>
+    <h1>Форма оформления билетов</h1>
+    <form id="ticketForm">
+        <label for="departureAirport">Аэропорт отлёта:</label>
+        <select id="departureAirport" name="departureAirport">
+            <option value="RTG">RTG</option>
+            <option value="JFK">JFK</option>
+            <option value="LAX">LAX</option>
+            <option value="LHR">LHR</option>
+            <option value="CDG">CDG</option>
+            <option value="HND">HND</option>
+        </select><br>
+        <label for="arrivalAirport">Аэропорт прилёта:</label>
+        <select id="arrivalAirport" name="arrivalAirport">
+            <option value="RTG">RTG</option>
+            <option value="JFK">JFK</option>
+            <option value="LAX">LAX</option>
+            <option value="LHR">LHR</option>
+            <option value="CDG">CDG</option>
+            <option value="HND">HND</option>
+        </select><br>
+        <label for="departureDate">Дата вылета:</label>
+        <input type="date" id="departureDate" name="departureDate" required><br>
+        <button type="submit">Поиск билетов</button>
+    </form>
+    <div id="flightsContainer">
+        <p>Тут пока ничего нет :(</p>
+    </div>
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Выберите тип билета</h2>
+            <form id="ticketTypeForm">
+                <label for="ticketType">Тип билета:</label>
+                <select id="ticketType" name="ticketType">
+                    <option value="Economy">Эконом</option>
+                    <option value="Business">Бизнес</option>
+                    <option value="First">Первый класс</option>
+                </select>
+                <label for="price">Цена:</label>
+                <input type="text" id="price" name="price" readonly>
+                <button type="submit">Добавить в корзину</button>
+            </form>
+        </div>
+    </div>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span id="closeCartBtn" class="close">×</span>
+            <h2>Корзина</h2>
+            <div id="cartItemsContainer">
+            </div>
+        </div>
+    </div>
+    <div id="ticketsModal" class="modal">
+        <div class="modal-content">
+            <span id="closeTicketsBtn" class="close">×</span>
+            <h2>Ваши билеты</h2>
+            <div id="userTicketsContainer"></div>
+        </div>
+    </div>
+    <input type="hidden" id="flightIDHidden" name="flightID">
+
+    <script>
+    // Получаем имя пользователя из localStorage и выводим на страницу
+    const username = localStorage.getItem('username');
+    const usernameElement = document.getElementById('username');
+    if (username) {
+        usernameElement.textContent = username;
+    } else {
+        usernameElement.textContent = 'Гость';
+    }
+
+    // Получаем ID пользователя из localStorage и выводим на страницу
+    const userID = localStorage.getItem('userID');
+    const userIDElement = document.getElementById('userID');
+    if (userID) {
+        userIDElement.textContent = `ID: ${userID}`;
+    } else {
+        userIDElement.textContent = '';
+    }
+    </script>
+    <script src="tickets.js"></script>
+</body>
+</html>

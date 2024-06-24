@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация и Вход</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <button id="registerBtn">Регистрация</button>
+        <button id="loginBtn">Вход</button>
+    </div>
+    <div class="registrationFormContainer" id="registrationFormContainer">
+        <form id="registrationForm">
+            <label for="firstName">Имя:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+
+            <label for="lastName">Фамилия:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+
+            <label for="passportNumber">Номер паспорта:</label>
+            <input type="text" id="passportNumber" name="passportNumber" required><br>
+
+            <label for="birthDate">Дата рождения:</label>
+            <input type="date" id="birthDate" name="birthDate" required><br>
+
+            <button type="submit">Зарегистрироваться</button>
+            <button type="button" id="backBtn">Назад</button>
+        </form>
+    </div>
+    <div class="loginFormContainer" id="loginFormContainer">
+        <form id="loginForm">
+            <label for="loginFirstName">Имя:</label>
+            <input type="text" id="loginFirstName" name="loginFirstName" required><br>
+    
+            <label for="loginPassportNumber">Номер паспорта:</label>
+            <input type="text" id="loginPassportNumber" name="loginPassportNumber" required><br>
+    
+            <button type="submit">Войти</button>
+            <button type="button" id="backLoginBtn">Назад</button>
+        </form>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
